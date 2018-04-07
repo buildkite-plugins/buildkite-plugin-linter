@@ -1,0 +1,5 @@
+version: '3.2'
+services:
+  validator:
+    build: .
+    image: buildkite/plugin-example-validator
