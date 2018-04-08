@@ -2,9 +2,9 @@ const fs = require('fs')
 const Ajv = require('ajv')
 const yaml = require('js-yaml')
 
-const pluginName = process.argv[2]
-const schemaPath = process.argv[3]
-const readmePath = process.argv[4]
+const pluginName = process.argv[2] || process.env.PLUGIN_NAME
+const schemaPath = process.argv[3] || process.env.PLUGIN_SCHEMA
+const readmePath = process.argv[4] || process.env.PLUGIN_README
 
 if (!pluginName || !schemaPath || !readmePath) {
   throw "Usage: <plugin-name> <schema-path> <readme-path>"

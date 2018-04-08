@@ -8,11 +8,15 @@ In a plugin’s pipeline.yml test suite:
 
 ```yaml
   - label: ":json:"
-    command: my-plugin /plugin/schema.yml /plugin/README.md
     plugins:
       docker#x.x.x:
         image: buildkite/plugin-example-validator
         workdir: /plugin
+        always-pull: true
+        environment:
+          - PLUGIN_NAME=my-plugin
+          - PLUGIN_SCHEMA=/plugin/schema.yml
+          - PLUGIN_README=/plugin/README.md
 ```
 
 On the command line:
