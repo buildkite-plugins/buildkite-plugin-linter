@@ -1,6 +1,6 @@
 # Buildkite Plugin Example Validator
 
-A tool for validating a [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugin)’s readme examples against its JSON schema file ✨
+A tool for validating a [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugins)’s readme examples against its JSON schema file ✨
 
 ## Usage
 
