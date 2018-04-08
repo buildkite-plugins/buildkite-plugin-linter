@@ -3,4 +3,4 @@ WORKDIR    /src
 ADD        index.js package.json package-lock.json /src/
 ENV        NODE_ENV=production
 RUN        npm -s install
-ENTRYPOINT ["node", "index.js"]
+ENTRYPOINT ["node", "/src/index.js"]
