@@ -8,7 +8,7 @@ In a plugin’s pipeline.yml test suite:
 
 ```yaml
   - label: ":json:"
-    command: /plugin/schema.yml /plugin/README.md
+    command: my-plugin /plugin/schema.yml /plugin/README.md
     plugins:
       docker#x.x.x:
         image: buildkite/plugin-example-validator
@@ -18,7 +18,7 @@ In a plugin’s pipeline.yml test suite:
 On the command line:
 
 ```bash
-docker run -it --rm -v "$(pwd):/plugin" buildkite/plugin-example-validator /plugin/schema.yml /plugin/README.md
+docker run -it --rm -v "$(pwd):/plugin" buildkite/plugin-example-validator my-plugin /plugin/schema.yml /plugin/README.md
 ```
 
 ## License
