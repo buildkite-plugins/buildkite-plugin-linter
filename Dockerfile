@@ -1,5 +1,6 @@
-FROM       ruby:2.5.1-alpine
-RUN        gem install json-schema
+FROM       node:9-alpine
 WORKDIR    /src
-ADD        example-validator.rb .
-ENTRYPOINT ["ruby", "example-validator.rb"]
+ADD        index.js package.json package-lock.json /src/
+ENV        NODE_ENV=production
+RUN        npm -s install
+ENTRYPOINT ["node", "index.js"]
