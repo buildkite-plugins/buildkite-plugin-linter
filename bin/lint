@@ -16,11 +16,6 @@ const argv = require('yargs')
     type: 'string',
     default: 'README.md'
   })
-  .option('schema', {
-    describe: 'Schema filename',
-    type: 'string',
-    default: 'schema.yml'
-  })
   .demandOption(['name', 'path'])
   .help()
   .version(false)
