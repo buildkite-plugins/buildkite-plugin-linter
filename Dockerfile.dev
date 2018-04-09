@@ -1,0 +1,5 @@
+FROM       node:9-alpine
+WORKDIR    /src
+ENV        PATH=$PATH:/src/bin PLUGIN_PATH=/plugin
+ADD        . /src/
+RUN        npm -s install
