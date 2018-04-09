@@ -1,31 +1,10 @@
 # Buildkite Plugin Linter
 
-A linter for your [Buildkite plugins](https://buildkite.com/docs/agent/v3/plugins) ✨
+A linter for your [Buildkite plugins](https://buildkite.com/docs/agent/v3/plugins), used by the [plugin-linter Buildkite plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin) ✨
 
 Features:
 
 * Checks that all readme examples match the plugin’s [JSON schema](http://json-schema.org) file
-
-## Usage
-
-In a plugin’s pipeline.yml test suite:
-
-```yaml
-  - label: ":json:"
-    plugins:
-      docker#x.x.x:
-        image: buildkite/plugin-linter
-        workdir: /plugin
-        environment:
-          - PLUGIN_NAME=my-plugin
-        always-pull: true
-```
-
-On the command line:
-
-```bash
-docker run -it --rm -v "$(pwd):/plugin" buildkite/plugin-linter --name my-plugin
-```
 
 ## Developing/testing
 
