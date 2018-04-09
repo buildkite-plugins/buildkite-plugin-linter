@@ -1,8 +1,8 @@
 # Example
 
-```yml
+```yaml
 steps:
   - plugins:
-      valid-plugin#v1.2.3:
+      valid-plugin-with-yaml#v1.2.3:
         option: value
 ```

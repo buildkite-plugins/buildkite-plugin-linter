@@ -32,8 +32,10 @@ bin/lint --help
 If not, you can use [Docker Compose](https://docs.docker.com/compose/):
 
 ```bash
-docker-compose run test
-docker-compose run lint --help
+# Run the tests
+docker-compose run linter
+# Run the lint command
+docker-compose run linter lint --help
 ```
 
 ## Roadmap

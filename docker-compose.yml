@@ -1,18 +1,12 @@
 version: '3.2'
 services:
-  lint:
-    build: .
-    volumes:
-      # Mount these in so we pick up edits in dev, without having to re-build
-      - "./bin:/src/bin"
-      - "./lib:/src/lib"
-  test:
-    build: .
+  linter:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     volumes:
       # Mount these in so we pick up edits in dev, without having to re-build
       - "./bin:/src/bin"
       - "./lib:/src/lib"
       - "./test:/src/test"
-    entrypoint:
-      - npm
-      - test
+    command: npm test
