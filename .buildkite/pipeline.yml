@@ -1,5 +1,5 @@
 steps:
-  - label: ":node:"
+  - label: ":mocha:"
     plugins:
       docker-compose#v2.0.0:
         run: test
