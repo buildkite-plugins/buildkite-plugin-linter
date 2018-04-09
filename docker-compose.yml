@@ -4,13 +4,15 @@ services:
     build: .
     volumes:
       # Mount these in so we pick up edits in dev, without having to re-build
-      - "./bin:/src/bin:ro"
-      - "./lib:/src/lib:ro"
+      - "./bin:/src/bin"
+      - "./lib:/src/lib"
   test:
     build: .
     volumes:
       # Mount these in so we pick up edits in dev, without having to re-build
-      - "./bin:/src/bin:ro"
-      - "./lib:/src/lib:ro"
-      - "./test:/src/test:ro"
-    entrypoint: npm test
+      - "./bin:/src/bin"
+      - "./lib:/src/lib"
+      - "./test:/src/test"
+    entrypoint:
+      - npm
+      - test
