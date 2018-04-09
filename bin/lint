@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const argv = require('yargs')
+  .env('PLUGIN')
+  .usage('$0', 'Lint a buildkite plugin')
+  .option('name', {
+    describe: 'Name of the plugin',
+    type: 'string'
+  })
+  .option('path', {
+    describe: 'Path to the plugin',
+    type: 'string'
+  })
+  .option('readme', {
+    describe: 'Readme filename',
+    type: 'string',
+    default: 'README.md'
+  })
+  .option('schema', {
+    describe: 'Schema filename',
+    type: 'string',
+    default: 'schema.yml'
+  })
+  .demandOption(['name', 'path'])
+  .help()
+  .version(false)
+  .argv
+
+const valid = require('../lib/lint-examples')(argv.name, argv.path, argv)
+
+if (!valid) {
+  process.exit(1)
+}

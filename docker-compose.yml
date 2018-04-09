@@ -1,5 +1,16 @@
 version: '3.2'
 services:
-  validator:
+  lint:
     build: .
-    image: buildkite/plugin-example-validator
+    volumes:
+      # Mount these in so we pick up edits in dev, without having to re-build
+      - "./bin:/src/bin:ro"
+      - "./lib:/src/lib:ro"
+  test:
+    build: .
+    volumes:
+      # Mount these in so we pick up edits in dev, without having to re-build
+      - "./bin:/src/bin:ro"
+      - "./lib:/src/lib:ro"
+      - "./test:/src/test:ro"
+    entrypoint: npm test
