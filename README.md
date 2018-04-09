@@ -6,6 +6,19 @@ Features:
 
 * Checks that all readme examples match the plugin’s [JSON schema](http://json-schema.org) file
 
+## Usage
+
+Usually this tool is used via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin), but if need be can be run locally on the command line:
+
+```bash
+docker run \
+  -it \
+  --rm \
+  -v "$(pwd):/plugin" \
+  buildkite/plugin-linter \
+    --name my-plugin
+```
+
 ## Developing/testing
 
 If you have Node installed:
