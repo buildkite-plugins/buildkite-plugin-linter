@@ -1,0 +1,4 @@
+properties:
+  option:
+    type: string
+additionalProperties: false

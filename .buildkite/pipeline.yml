@@ -5,7 +5,7 @@ steps:
         run: linter
   - wait
   - label: ":docker:"
-    branches: master fix-tests
+    branches: master
     plugins:
       docker-compose#v2.0.0:
         config: docker-compose.prod.yml

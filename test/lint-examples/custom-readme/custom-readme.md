@@ -3,6 +3,6 @@
 ```yml
 steps:
   - plugins:
-      valid-plugin#v1.2.3:
+      custom-readme#v1.2.3:
         option: value
 ```
