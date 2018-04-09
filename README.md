@@ -1,10 +1,10 @@
 # Buildkite Plugin Linter
 
-A tool for linter a [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugins)✨
+A linter for your [Buildkite plugins](https://buildkite.com/docs/agent/v3/plugins) ✨
 
 Features:
 
-* Checks that all readme examples match the plugin’s JSON schema file (schema.yml)
+* Checks that all readme examples match the plugin’s [JSON schema](http://json-schema.org) file
 
 ## Usage
 
@@ -29,7 +29,7 @@ docker run -it --rm -v "$(pwd):/plugin" buildkite/plugin-linter --name my-plugin
 
 ## Developing/testing
 
-If you want to run it locally using Node, use the following:
+If you have Node installed:
 
 ```bash
 npm install
@@ -37,7 +37,7 @@ npm test
 bin/lint --help
 ```
 
-If you don't have Node, you can use [Docker Compose](https://docs.docker.com/compose/):
+If not, you can use [Docker Compose](https://docs.docker.com/compose/):
 
 ```bash
 docker-compose run test
