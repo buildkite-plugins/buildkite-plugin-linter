@@ -1,5 +1,5 @@
 const assert = require('chai').assert
-const lintExamples = require('../lib/lint-examples')
+const lintExamples = require('../lib/linters/lint-examples')
 const path = require('path')
 const fixtures = path.join(__dirname, 'lint-examples')
 
@@ -20,19 +20,27 @@ describe('lint-examples', () => {
       }))
     })
   })
-  describe('invalid plugin', () => {
+  describe('invalid examples', () => {
     it('should be invalid', () => {
-      assert(!lintExamples('invalid-plugin', path.join(fixtures, 'invalid-plugin'), {
+      assert(!lintExamples('invalid-examples', path.join(fixtures, 'invalid-examples'), {
         silent: true,
         readme: 'README.md'
       }))
     })
   })
-  describe('custom paths', () => {
+  describe('custom readme paths', () => {
     it('should work', () => {
       assert(lintExamples('custom-readme', path.join(fixtures, 'custom-readme'), {
         silent: true,
         readme: 'custom-readme.md'
+      }))
+    })
+  })
+  describe('skips validation if missing .schema', () => {
+    it('should work', () => {
+      assert(lintExamples('missing-schema', path.join(fixtures, 'missing-schema'), {
+        silent: true,
+        readme: 'README.md'
       }))
     })
   })

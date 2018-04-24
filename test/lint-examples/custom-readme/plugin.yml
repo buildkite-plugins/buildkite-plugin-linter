@@ -1,0 +1,4 @@
+schema:
+  properties:
+    option:
+      type: string
