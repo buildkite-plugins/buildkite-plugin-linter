@@ -23,8 +23,8 @@ const argv = require('yargs')
 
 const valid = true;
 
-valid = valid && require('../lib/linters/lint-plugin-yaml')(argv.name, argv.path, argv)
-valid = valid && require('../lib/linters/lint-examples')(argv.name, argv.path, argv)
+valid = valid && require('../lib/linters/plugin-yaml-linter')(argv.name, argv.path, argv)
+valid = valid && require('../lib/linters/example-linter')(argv.name, argv.path, argv)
 
 if (!valid) {
   process.exit(1)

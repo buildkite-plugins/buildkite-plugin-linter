@@ -4,12 +4,13 @@ A linter for your [Buildkite plugins](https://buildkite.com/docs/agent/v3/plugin
 
 Features:
 
-* Check the plugin has a plugin.yml with required keys (according to [the plugin.yml JSON schema](lib/plugin-yaml-schema.json))
+* Check the plugin has a plugin.yml with required keys (according to [the plugin.yml JSON schema](lib/plugin-yaml-schema.yml))
 * Checks that all readme examples match the plugin’s schema
 
-Further reading:
+Further reading and tools:
 
-* [JSON schema](http://json-schema.org)
+* [JSON Schema](http://json-schema.org)
+* [JSON Schema Lint](https://jsonschemalint.com/)
 
 ## Usage
 
