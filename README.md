@@ -4,7 +4,13 @@ A linter for your [Buildkite plugins](https://buildkite.com/docs/agent/v3/plugin
 
 Features:
 
-* Checks that all readme examples match the plugin’s [JSON schema](http://json-schema.org) file
+* Check the plugin has a plugin.yml with required keys (according to [the plugin.yml JSON schema](lib/plugin-yaml-schema.yml))
+* Checks that all readme examples match the plugin’s schema
+
+Further reading and tools:
+
+* [JSON Schema](http://json-schema.org)
+* [JSON Schema Lint](https://jsonschemalint.com/)
 
 ## Usage
 
@@ -33,15 +39,14 @@ If not, you can use [Docker Compose](https://docs.docker.com/compose/):
 
 ```bash
 # Run the tests
-docker-compose run linter
+docker-compose run --rm linter
 # Run the lint command
-docker-compose run linter lint --help
+docker-compose run --rm linter lint --help
 ```
 
 ## Roadmap
 
 * Check the version numbers in the readme examples are up-to-date
-* Check all the plugin’s configuration options are documented in both the readme and the schema.yml
 
 ## License
 

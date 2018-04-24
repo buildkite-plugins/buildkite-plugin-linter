@@ -1,0 +1,22 @@
+properties:
+  name:
+    type: string
+    description: "Name of the plugin. For example: 'Shellcheck'"
+  description:
+    type: string
+    description: "Description of what the plugin does. For example: 'Runs shellcheck on your shell scripts.'"
+  author:
+    type: string
+    description: "Contact information for the author. For example: 'github.com/person'"
+  requirements:
+    type: array
+    description: "Commands that are required to be present on the agent. For example: ['docker', 'docker-compose']"
+  configuration:
+    type: object
+    description: "The JSON schema for the plugin’s configuration options. See http://json-schema.org and https://jsonschemalint.com/"
+required:
+  - name
+  - description
+  - author
+  - requirements
+  - configuration
