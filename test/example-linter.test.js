@@ -36,9 +36,9 @@ describe('lint-examples', () => {
       }))
     })
   })
-  describe('skips validation if missing .schema', () => {
+  describe('skips validation if missing .configuration', () => {
     it('should work', () => {
-      assert(exampleLinter('missing-schema', path.join(fixtures, 'missing-schema'), {
+      assert(exampleLinter('missing-configuration', path.join(fixtures, 'missing-configuration'), {
         silent: true,
         readme: 'README.md'
       }))

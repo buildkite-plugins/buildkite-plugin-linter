@@ -7,7 +7,7 @@ describe('lint-plugin-yaml', () => {
   describe('valid plugin', () => {
     it('should be valid', () => {
       assert(pluginYamlLinter('valid-plugin', path.join(fixtures, 'valid-plugin'), {
-        silent: true
+        silent: false
       }))
     })
   })
@@ -39,9 +39,9 @@ describe('lint-plugin-yaml', () => {
       }))
     })
   })
-  describe('missing schema', () => {
+  describe('missing configuration', () => {
     it('should be invalid', () => {
-      assert(!pluginYamlLinter('missing-schema', path.join(fixtures, 'missing-schema'), {
+      assert(!pluginYamlLinter('missing-configuration', path.join(fixtures, 'missing-configuration'), {
         silent: true
       }))
     })
