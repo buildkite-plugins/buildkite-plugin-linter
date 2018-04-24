@@ -1,23 +1,15 @@
-{
-  "properties": {
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "author": {
-      "type": "string"
-    },
-    "requirements": {
-      "type": "array"
-    }
-  },
-  "required": [
-    "name",
-    "description",
-    "author",
-    "requirements",
-    "schema"
-  ]
-}
+properties:
+  name:
+    type: string
+  description:
+    type: string
+  author:
+    type: string
+  requirements:
+    type: array
+required:
+  - name
+  - description
+  - author
+  - requirements
+  - schema
