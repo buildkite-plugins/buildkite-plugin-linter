@@ -7,7 +7,7 @@ properties:
     description: "Description of what the plugin does. For example: 'Runs shellcheck on your shell scripts.'"
   author:
     type: string
-    description: "Contact information for the author. For example: 'github.com/person'"
+    description: "Contact information for the author. For example: 'https://github.com/person'"
   requirements:
     type: array
     description: "Commands that are required to be present on the agent. For example: ['docker', 'docker-compose']"
