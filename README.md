@@ -6,6 +6,7 @@ Features:
 
 * Check the plugin has a plugin.yml with required keys (according to [the plugin.yml JSON schema](lib/plugin-yaml-schema.yml))
 * Checks that all readme examples match the plugin’s schema
+* Check the readme version numbers are up-to-date with the latest plugin version
 
 Further reading and tools:
 
@@ -43,10 +44,6 @@ docker-compose run --rm linter
 # Run the lint command
 docker-compose run --rm linter lint --help
 ```
-
-## Roadmap
-
-* Check the version numbers in the readme examples are up-to-date
 
 ## License
 

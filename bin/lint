@@ -24,6 +24,7 @@ const argv = require('yargs')
 Promise.all([
   require('../lib/linters/plugin-yaml-linter')(argv),
   require('../lib/linters/example-linter')(argv),
+  require('../lib/linters/readme-version-number-linter')(argv)
 ]).catch(() => {
   process.exit(1)
 })

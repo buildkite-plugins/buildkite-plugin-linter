@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "ajv": "^6.4.0",
+    "compare-versions": "^3.1.0",
+    "fs-extra": "^5.0.0",
+    "isomorphic-git": "^0.11.0",
     "js-yaml": "^3.11.0",
     "yargs": "^11.0.0"
   },
