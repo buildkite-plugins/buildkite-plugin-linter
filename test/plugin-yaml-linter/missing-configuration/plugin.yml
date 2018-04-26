@@ -1,4 +1,7 @@
 name: A plugin
 description: A great plugin
 author: github.com/buildkite
-requirements: []
+configuration:
+  properties: {}
+  required: []
+  additionalProperties: false
