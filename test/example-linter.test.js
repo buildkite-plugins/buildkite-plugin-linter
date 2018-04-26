@@ -1,12 +1,14 @@
 const assert = require('chai').assert
-const exampleLinter = require('../lib/linters/example-linter')
+const linter = require('../lib/linters/example-linter')
 const path = require('path')
 const fixtures = path.join(__dirname, 'example-linter')
 
-describe('lint-examples', () => {
+describe('example-linter', () => {
   describe('valid example', () => {
     it('should be valid', () => {
-      assert(exampleLinter('valid-plugin', path.join(fixtures, 'valid-plugin'), {
+      assert(linter({
+        name: 'valid-plugin',
+        path: path.join(fixtures, 'valid-plugin'),
         silent: true,
         readme: 'README.md'
       }))
@@ -14,7 +16,9 @@ describe('lint-examples', () => {
   })
   describe('valid plugin with yaml instead of yml', () => {
     it('should be valid', () => {
-      assert(exampleLinter('valid-plugin-with-yaml', path.join(fixtures, 'valid-plugin-with-yaml'), {
+      assert(linter({
+        name: 'valid-plugin-with-yaml',
+        path: path.join(fixtures, 'valid-plugin-with-yaml'),
         silent: true,
         readme: 'README.md'
       }))
@@ -22,7 +26,9 @@ describe('lint-examples', () => {
   })
   describe('invalid examples', () => {
     it('should be invalid', () => {
-      assert(!exampleLinter('invalid-examples', path.join(fixtures, 'invalid-examples'), {
+      assert(!linter({
+        name: 'invalid-examples',
+        path: path.join(fixtures, 'invalid-examples'),
         silent: true,
         readme: 'README.md'
       }))
@@ -30,7 +36,9 @@ describe('lint-examples', () => {
   })
   describe('custom readme paths', () => {
     it('should work', () => {
-      assert(exampleLinter('custom-readme', path.join(fixtures, 'custom-readme'), {
+      assert(linter({
+        name: 'custom-readme',
+        path: path.join(fixtures, 'custom-readme'),
         silent: true,
         readme: 'custom-readme.md'
       }))
@@ -38,7 +46,9 @@ describe('lint-examples', () => {
   })
   describe('skips validation if missing .configuration', () => {
     it('should work', () => {
-      assert(exampleLinter('missing-configuration', path.join(fixtures, 'missing-configuration'), {
+      assert(linter({
+        name: 'missing-configuration',
+        path: path.join(fixtures, 'missing-configuration'),
         silent: true,
         readme: 'README.md'
       }))
