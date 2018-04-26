@@ -5,8 +5,8 @@ const fixtures = path.join(__dirname, 'example-linter')
 
 describe('example-linter', () => {
   describe('valid example', () => {
-    it('should be valid', () => {
-      assert(linter({
+    it('should be valid', async () => {
+      assert(await linter({
         name: 'valid-plugin',
         path: path.join(fixtures, 'valid-plugin'),
         silent: true,
@@ -15,8 +15,8 @@ describe('example-linter', () => {
     })
   })
   describe('valid plugin with yaml instead of yml', () => {
-    it('should be valid', () => {
-      assert(linter({
+    it('should be valid', async () => {
+      assert(await linter({
         name: 'valid-plugin-with-yaml',
         path: path.join(fixtures, 'valid-plugin-with-yaml'),
         silent: true,
@@ -25,8 +25,8 @@ describe('example-linter', () => {
     })
   })
   describe('invalid examples', () => {
-    it('should be invalid', () => {
-      assert(!linter({
+    it('should be invalid', async () => {
+      assert.isFalse(await linter({
         name: 'invalid-examples',
         path: path.join(fixtures, 'invalid-examples'),
         silent: true,
@@ -35,8 +35,8 @@ describe('example-linter', () => {
     })
   })
   describe('custom readme paths', () => {
-    it('should work', () => {
-      assert(linter({
+    it('should work', async () => {
+      assert(await linter({
         name: 'custom-readme',
         path: path.join(fixtures, 'custom-readme'),
         silent: true,
@@ -45,8 +45,8 @@ describe('example-linter', () => {
     })
   })
   describe('skips validation if missing .configuration', () => {
-    it('should work', () => {
-      assert(linter({
+    it('should work', async () => {
+      assert(await linter({
         name: 'missing-configuration',
         path: path.join(fixtures, 'missing-configuration'),
         silent: true,
