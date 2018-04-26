@@ -21,11 +21,9 @@ const argv = require('yargs')
   .version(false)
   .argv
 
-let valid = true;
-
-valid = valid && require('../lib/linters/plugin-yaml-linter')(argv)
-valid = valid && require('../lib/linters/example-linter')(argv)
-
-if (!valid) {
+Promise.all([
+  require('../lib/linters/plugin-yaml-linter')(argv),
+  require('../lib/linters/example-linter')(argv),
+]).catch(() => {
   process.exit(1)
-}
+})
