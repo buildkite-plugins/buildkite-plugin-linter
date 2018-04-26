@@ -17,10 +17,13 @@ properties:
     properties:
       properties:
         type: object
+        description: "A list of all plugin configuration properties."
       required:
         type: array
+        description: "A list of the required plugin configuration properties."
       additionalProperties:
         type: boolean
+        description: "Allow undefined properties. Recommended to be false, to help people catch typos."
     required:
       - properties
       - required
