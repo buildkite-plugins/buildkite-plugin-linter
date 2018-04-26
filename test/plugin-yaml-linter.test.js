@@ -12,50 +12,25 @@ describe('plugin-yaml-linter', () => {
         silent: true
       }))
     })
-  })
-  describe('missing name', () => {
-    it('should be invalid', async () => {
-      assert.isFalse(await linter({
-        name: 'missing-name',
-        path: path.join(fixtures, 'missing-name'),
-        silent: true
-      }))
-    })
-  })
-  describe('missing description', () => {
-    it('should be invalid', async () => {
-      assert.isFalse(await linter({
-        name: 'missing-description',
-        path: path.join(fixtures, 'missing-description'),
-        silent: true
-      }))
-    })
-  })
-  describe('missing author', () => {
-    it('should be invalid', async () => {
-      assert.isFalse(await linter({
-        name: 'missing-author',
-        path: path.join(fixtures, 'missing-author'),
-        silent: true
-      }))
-    })
-  })
-  describe('missing requirements', () => {
-    it('should be invalid', async () => {
-      assert.isFalse(await linter({
-        name: 'missing-requirements',
-        path: path.join(fixtures, 'missing-requirements'),
-        silent: true
-      }))
-    })
-  })
-  describe('missing configuration', () => {
-    it('should be invalid', async () => {
-      assert.isFalse(await linter({
-        name: 'missing-configuration',
-        path: path.join(fixtures, 'missing-configuration'),
-        silent: true
-      }))
+  });
+
+  [ 'missing-name',
+    'missing-description',
+    'missing-author',
+    'missing-requirements',
+    'missing-configuration',
+    'missing-configuration-properties',
+    'missing-configuration-required',
+    'missing-configuration-additional-properties'
+  ].forEach((invalidCase) => {
+    describe(invalidCase, () => {
+      it('should be invalid', async () => {
+        assert.isFalse(await linter({
+          name: invalidCase,
+          path: path.join(fixtures, invalidCase),
+          silent: true
+        }))
+      })
     })
   })
 })

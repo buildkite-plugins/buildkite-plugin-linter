@@ -1,4 +1,7 @@
 name: A plugin
 description: A great plugin
 requirements: []
-configuration: {}
+configuration:
+  properties: {}
+  required: []
+  additionalProperties: false
