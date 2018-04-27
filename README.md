@@ -26,6 +26,15 @@ docker run \
     --name my-plugin
 ```
 
+## Roadmap / TODO
+
+* Check that all the config options in the readme exist in the configuration schema
+* Check that all the options in the configuration schema exist in the readme
+* Warn about undocumented config options found in source code
+* [TAP](https://testanything.org) output support
+
+Contributions welcome! ❤️
+
 ## Developing/testing
 
 If you have Node installed:
