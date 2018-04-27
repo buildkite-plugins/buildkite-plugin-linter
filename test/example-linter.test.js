@@ -2,6 +2,7 @@ const assert = require('chai').assert
 const linter = require('../lib/linters/example-linter')
 const path = require('path')
 const fixtures = path.join(__dirname, 'example-linter')
+const tap = require('tap')
 
 describe('example-linter', () => {
   describe('valid example', () => {
@@ -11,7 +12,7 @@ describe('example-linter', () => {
         path: path.join(fixtures, 'valid-plugin'),
         silent: true,
         readme: 'README.md'
-      }))
+      }, tap))
     })
   })
   describe('valid plugin with yaml instead of yml', () => {
@@ -21,7 +22,7 @@ describe('example-linter', () => {
         path: path.join(fixtures, 'valid-plugin-with-yaml'),
         silent: true,
         readme: 'README.md'
-      }))
+      }, tap))
     })
   })
   describe('invalid examples', () => {
@@ -31,7 +32,7 @@ describe('example-linter', () => {
         path: path.join(fixtures, 'invalid-examples'),
         silent: true,
         readme: 'README.md'
-      }))
+      }, tap))
     })
   })
   describe('custom readme paths', () => {
@@ -41,7 +42,7 @@ describe('example-linter', () => {
         path: path.join(fixtures, 'custom-readme'),
         silent: true,
         readme: 'custom-readme.md'
-      }))
+      }, tap))
     })
   })
   describe('skips validation if missing .configuration', () => {
@@ -51,7 +52,7 @@ describe('example-linter', () => {
         path: path.join(fixtures, 'missing-configuration'),
         silent: true,
         readme: 'README.md'
-      }))
+      }, tap))
     })
   })
 })

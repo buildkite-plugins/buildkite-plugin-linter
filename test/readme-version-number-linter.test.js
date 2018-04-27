@@ -2,6 +2,7 @@ const assert = require('chai').assert
 const path = require('path')
 const fs = require('fs-extra')
 const git = require('isomorphic-git')
+const tap = require('tap')
 
 const fixtures = path.join(__dirname, 'readme-version-number-linter')
 const linter = require('../lib/linters/readme-version-number-linter')
@@ -22,7 +23,7 @@ describe('readme-version-number-linter', () => {
         path: initGitFixture(path.join(fixtures, 'up-to-date')),
         readme: 'README.md',
         silent: true
-      }))
+      }, tap))
     })
   })
   describe('custom readme with current version numbers', () => {
@@ -32,7 +33,7 @@ describe('readme-version-number-linter', () => {
         path: initGitFixture(path.join(fixtures, 'custom-readme')),
         readme: 'custom-readme.md',
         silent: true
-      }))
+      }, tap))
     })
   })
   describe('readme with out of date version numbers', () => {
@@ -42,7 +43,7 @@ describe('readme-version-number-linter', () => {
         path: initGitFixture(path.join(fixtures, 'out-of-date')),
         readme: 'README.md',
         silent: true
-      }))
+      }, tap))
     })
   })
 })

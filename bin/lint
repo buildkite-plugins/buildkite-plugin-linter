@@ -21,17 +21,16 @@ const argv = require('yargs')
   .version(false)
   .argv
 
+const tap = require('tap')
+
 Promise.all([
-  require('../lib/linters/plugin-yaml-linter')(argv),
-  require('../lib/linters/example-linter')(argv),
-  require('../lib/linters/readme-version-number-linter')(argv)
-])
-  .then((results) => {
-    if (!results.every(x => x)) {
-      process.exit(1)
-    }
-  })
+  require('../lib/linters/plugin-yaml-linter')(argv, tap),
+  require('../lib/linters/example-linter')(argv, tap),
+  require('../lib/linters/readme-version-number-linter')(argv, tap)
+  ])
   .catch((err) => {
-    console.log(err)
-    process.exit(1)
+    tap.threw(err)
+  })
+  .then(() => {
+    tap.end()
   })
