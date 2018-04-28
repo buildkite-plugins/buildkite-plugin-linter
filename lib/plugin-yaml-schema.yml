@@ -26,8 +26,6 @@ properties:
         description: "Allow undefined properties. Recommended to be false, to help people catch typos."
     required:
       - properties
-      - required
-      - additionalProperties
 required:
   - name
   - description
