@@ -24,7 +24,7 @@ docker run \
   --rm \
   -v "$(pwd):/plugin" \
   buildkite/plugin-linter \
-    --name my-plugin
+    --name my-org/my-plugin
 ```
 
 ## Roadmap / TODO
