@@ -4,9 +4,10 @@ A linter for your [Buildkite plugins](https://buildkite.com/docs/agent/v3/plugin
 
 Features:
 
-* Check the plugin has a plugin.yml with required keys (according to [the plugin.yml JSON schema](lib/plugin-yaml-schema.yml))
+* Checks for a plugin.yml file (and validates it against [the plugin.yml JSON schema](lib/plugin-yaml-schema.yml))
 * Checks that all readme examples match the plugin’s schema
 * Check the readme version numbers are up-to-date with the latest plugin version
+* Machine-parseable TAP output
 
 Further reading and tools:
 
@@ -15,7 +16,7 @@ Further reading and tools:
 
 ## Usage
 
-Usually this tool is used via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin), but if need be can be run locally on the command line:
+Usually this tool is used via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin), but can also be run locally on the command line:
 
 ```bash
 docker run \
@@ -31,7 +32,6 @@ docker run \
 * Check that all the config options in the readme exist in the configuration schema
 * Check that all the options in the configuration schema exist in the readme
 * Warn about undocumented config options found in source code
-* [TAP](https://testanything.org) output support
 
 Contributions welcome! ❤️
 
