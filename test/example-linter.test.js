@@ -27,6 +27,16 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('valid plugin with examples without a steps key', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        name: 'valid-example-without-a-steps-key',
+        path: path.join(fixtures, 'valid-example-without-a-steps-key'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
   describe('invalid examples', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
