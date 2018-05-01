@@ -1,9 +1,18 @@
 steps:
   - label: ":mocha:"
+    command: "npm run test"
     plugins:
       docker-compose#v2.0.0:
         run: linter
+
+  - label: ":eslint:"
+    command: "npm run lint"
+    plugins:
+      docker-compose#v2.0.0:
+        run: linter
+
   - wait
+
   - label: ":docker:"
     branches: master
     plugins:

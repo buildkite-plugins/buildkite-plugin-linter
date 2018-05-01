@@ -1,7 +1,8 @@
+/* eslint-env mocha */
+
 const assert = require('chai').assert
 const path = require('path')
 const fs = require('fs-extra')
-const git = require('isomorphic-git')
 const tap = require('tap')
 
 const fixtures = path.join(__dirname, 'readme-version-number-linter')
@@ -10,7 +11,7 @@ const linter = require('../lib/linters/readme-version-number-linter')
 // The fixtures are checked as git repos, and then renamed from .git to git so
 // they can be checked in. This just reverses the renames so we can use them as
 // standalone git repos.
-function initGitFixture(dir) {
+function initGitFixture (dir) {
   fs.copySync(path.join(dir, 'git'), path.join(dir, '.git'))
   return dir
 }
