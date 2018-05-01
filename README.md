@@ -45,7 +45,9 @@ npm test
 bin/lint --help
 ```
 
-If not, you can use [Docker Compose](https://docs.docker.com/compose/):
+Code style is validated using [JavaScript Standard Style](https://standardjs.com).
+
+To run the tests using [Docker Compose](https://docs.docker.com/compose/):
 
 ```bash
 # Run the tests
