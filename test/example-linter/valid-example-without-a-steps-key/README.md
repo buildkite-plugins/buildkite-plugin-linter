@@ -3,6 +3,6 @@
 ```yml
 - label: "Label"
   plugins:
-    valid-plugin#v1.2.3:
+    valid-example-without-a-steps-key#v1.2.3:
       option: value
 ```
