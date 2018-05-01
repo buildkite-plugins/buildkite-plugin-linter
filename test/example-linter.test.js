@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 const assert = require('chai').assert
 const linter = require('../lib/linters/example-linter')
 const path = require('path')

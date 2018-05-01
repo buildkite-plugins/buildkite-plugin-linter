@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 const assert = require('chai').assert
 const linter = require('../lib/linters/plugin-yaml-linter')
 const path = require('path')
@@ -20,7 +22,7 @@ describe('plugin-yaml-linter', () => {
     'missing-author',
     'missing-requirements',
     'missing-configuration',
-    'missing-configuration-properties',
+    'missing-configuration-properties'
   ].forEach((invalidCase) => {
     describe(invalidCase, () => {
       it('should be invalid', async () => {
