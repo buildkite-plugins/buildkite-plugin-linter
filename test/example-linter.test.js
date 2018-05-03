@@ -37,6 +37,16 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('valid example with ignored yml block', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        name: 'valid-example-with-ignored-yml-block',
+        path: path.join(fixtures, 'valid-example-with-ignored-yml-block'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
   describe('invalid examples', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({

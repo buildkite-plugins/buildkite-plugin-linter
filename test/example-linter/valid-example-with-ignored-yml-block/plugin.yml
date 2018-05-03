@@ -1,0 +1,4 @@
+configuration:
+  properties:
+    option:
+      type: string
