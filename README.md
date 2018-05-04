@@ -16,7 +16,20 @@ Further reading and tools:
 
 ## Usage
 
-Usually this tool is used via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin), but can also be run locally on the command line:
+You can use this tool via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin
+
+or you can add it to your docker-compose.yml file and then use `docker-compose run --rm lint`:
+
+```yml
+services:
+  lint:
+    image: buildkite/plugin-linter
+    command: ['--name', 'my-org/my-plugin']
+    volumes:
+      - ".:/plugin"
+ ```
+
+or you can run it locally on the command line:
 
 ```bash
 docker run \
