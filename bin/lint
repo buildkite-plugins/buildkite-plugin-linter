@@ -16,6 +16,12 @@ const argv = require('yargs')
     type: 'string',
     default: 'README.md'
   })
+  .check(yargs => {
+    if (yargs && yargs.name && yargs.name.endsWith('-buildkite-plugin')) {
+      throw new Error(`--name can not end with -buildkite-plugin. Did you mean ${yargs.name.replace(/-buildkite-plugin$/, '')}?`)
+    }
+    return true
+  })
   .demandOption(['name', 'path'])
   .help()
   .version(false)
