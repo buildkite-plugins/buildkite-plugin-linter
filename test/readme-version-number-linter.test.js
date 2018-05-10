@@ -27,6 +27,16 @@ describe('readme-version-number-linter', () => {
       }, tap))
     })
   })
+  describe('readme with higher version numbers', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        name: 'future-version',
+        path: initGitFixture(path.join(fixtures, 'future-version')),
+        readme: 'README.md',
+        silent: true
+      }, tap))
+    })
+  })
   describe('custom readme with current version numbers', () => {
     it('should be valid', async () => {
       assert(linter({
