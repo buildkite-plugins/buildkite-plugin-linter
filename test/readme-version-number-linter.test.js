@@ -57,4 +57,14 @@ describe('readme-version-number-linter', () => {
       }, tap))
     })
   })
+  describe('readme withan invalid version number', () => {
+    it('should ignore the invalid', async () => {
+      assert(await linter({
+        id: 'invalid-sem-ver-tags',
+        path: initGitFixture(path.join(fixtures, 'invalid-sem-ver-tags')),
+        readme: 'README.md',
+        silent: false
+      }, tap))
+    })
+  })
 })
