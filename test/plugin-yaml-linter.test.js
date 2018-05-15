@@ -10,7 +10,7 @@ describe('plugin-yaml-linter', () => {
   describe('valid plugin', () => {
     it('should be valid', async () => {
       assert(await linter({
-        name: 'valid-plugin',
+        id: 'valid-plugin',
         path: path.join(fixtures, 'valid-plugin'),
         silent: true
       }, tap))
