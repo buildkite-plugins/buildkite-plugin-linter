@@ -10,7 +10,7 @@ describe('example-linter', () => {
   describe('valid example', () => {
     it('should be valid', async () => {
       assert(await linter({
-        name: 'valid-plugin',
+        id: 'valid-plugin',
         path: path.join(fixtures, 'valid-plugin'),
         silent: true,
         readme: 'README.md'
@@ -20,7 +20,7 @@ describe('example-linter', () => {
   describe('valid plugin with yaml instead of yml', () => {
     it('should be valid', async () => {
       assert(await linter({
-        name: 'valid-plugin-with-yaml',
+        id: 'valid-plugin-with-yaml',
         path: path.join(fixtures, 'valid-plugin-with-yaml'),
         silent: true,
         readme: 'README.md'
@@ -30,7 +30,7 @@ describe('example-linter', () => {
   describe('valid plugin with examples without a steps key', () => {
     it('should be valid', async () => {
       assert(await linter({
-        name: 'valid-example-without-a-steps-key',
+        id: 'valid-example-without-a-steps-key',
         path: path.join(fixtures, 'valid-example-without-a-steps-key'),
         silent: true,
         readme: 'README.md'
@@ -40,7 +40,7 @@ describe('example-linter', () => {
   describe('valid example with ignored yml block', () => {
     it('should be valid', async () => {
       assert(await linter({
-        name: 'valid-example-with-ignored-yml-block',
+        id: 'valid-example-with-ignored-yml-block',
         path: path.join(fixtures, 'valid-example-with-ignored-yml-block'),
         silent: true,
         readme: 'README.md'
@@ -50,7 +50,7 @@ describe('example-linter', () => {
   describe('invalid examples', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
-        name: 'invalid-examples',
+        id: 'invalid-examples',
         path: path.join(fixtures, 'invalid-examples'),
         silent: true,
         readme: 'README.md'
@@ -60,7 +60,7 @@ describe('example-linter', () => {
   describe('custom readme paths', () => {
     it('should work', async () => {
       assert(await linter({
-        name: 'custom-readme',
+        id: 'custom-readme',
         path: path.join(fixtures, 'custom-readme'),
         silent: true,
         readme: 'custom-readme.md'
@@ -70,7 +70,7 @@ describe('example-linter', () => {
   describe('skips validation if missing .configuration', () => {
     it('should work', async () => {
       assert(await linter({
-        name: 'missing-configuration',
+        id: 'missing-configuration',
         path: path.join(fixtures, 'missing-configuration'),
         silent: true,
         readme: 'README.md'

@@ -24,7 +24,7 @@ or you can add it to your docker-compose.yml file and then use `docker-compose r
 services:
   lint:
     image: buildkite/plugin-linter
-    command: ['--name', 'my-org/my-plugin']
+    command: ['--id', 'my-org/my-plugin']
     volumes:
       - ".:/plugin"
  ```
@@ -37,7 +37,7 @@ docker run \
   --rm \
   -v "$(pwd):/plugin" \
   buildkite/plugin-linter \
-    --name my-org/my-plugin
+    --id my-org/my-plugin
 ```
 
 ## Roadmap / TODO

@@ -3,9 +3,10 @@
 const argv = require('yargs')
   .env('PLUGIN')
   .usage('$0', 'Lint a buildkite plugin')
-  .option('name', {
-    describe: 'Name of the plugin',
-    type: 'string'
+  .option('id', {
+    describe: 'Id of the plugin (e.g. my-org/my-plugin)',
+    type: 'string',
+    alias: 'name'
   })
   .option('path', {
     describe: 'Path to the plugin',
@@ -17,12 +18,12 @@ const argv = require('yargs')
     default: 'README.md'
   })
   .check(yargs => {
-    if (yargs && yargs.name && yargs.name.endsWith('-buildkite-plugin')) {
-      throw new Error(`--name can not end with -buildkite-plugin. Did you mean ${yargs.name.replace(/-buildkite-plugin$/, '')}?`)
+    if (yargs && yargs.id && yargs.id.endsWith('-buildkite-plugin')) {
+      throw new Error(`--id can not end with -buildkite-plugin. Did you mean ${yargs.id.replace(/-buildkite-plugin$/, '')}?`)
     }
     return true
   })
-  .demandOption(['name', 'path'])
+  .demandOption(['id', 'path'])
   .help()
   .version(false)
   .argv

@@ -20,7 +20,7 @@ describe('readme-version-number-linter', () => {
   describe('readme with current version numbers', () => {
     it('should be valid', async () => {
       assert(await linter({
-        name: 'up-to-date',
+        id: 'up-to-date',
         path: initGitFixture(path.join(fixtures, 'up-to-date')),
         readme: 'README.md',
         silent: true
@@ -30,7 +30,7 @@ describe('readme-version-number-linter', () => {
   describe('readme with higher version numbers', () => {
     it('should be valid', async () => {
       assert(await linter({
-        name: 'future-version',
+        id: 'future-version',
         path: initGitFixture(path.join(fixtures, 'future-version')),
         readme: 'README.md',
         silent: true
@@ -40,7 +40,7 @@ describe('readme-version-number-linter', () => {
   describe('custom readme with current version numbers', () => {
     it('should be valid', async () => {
       assert(linter({
-        name: 'custom-readme',
+        id: 'custom-readme',
         path: initGitFixture(path.join(fixtures, 'custom-readme')),
         readme: 'custom-readme.md',
         silent: true
@@ -50,7 +50,7 @@ describe('readme-version-number-linter', () => {
   describe('readme with out of date version numbers', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
-        name: 'out-of-date',
+        id: 'out-of-date',
         path: initGitFixture(path.join(fixtures, 'out-of-date')),
         readme: 'README.md',
         silent: true
