@@ -16,9 +16,7 @@ Further reading and tools:
 
 ## Usage
 
-You can use this tool via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin
-
-or you can add it to your docker-compose.yml file and then use `docker-compose run --rm lint`:
+You can use this tool via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin) or you can add it to your docker-compose.yml file and then use `docker-compose run --rm lint`:
 
 ```yml
 services:
