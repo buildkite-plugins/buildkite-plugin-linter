@@ -1,4 +1,4 @@
-FROM       node:9-alpine@sha256:91d8397253ab507f0fbd0ca5b1a423c5a5f011b07650719dc28d1d5484cf031c
+FROM       node:9-alpine@sha256:991c1808b9702a34e4eb04092065e968e70b6a7f190a63192daf35c31e4c14af
 WORKDIR    /src
 ENV        PATH=$PATH:/src/bin NODE_ENV=production PLUGIN_PATH=/plugin
 ADD        . /src/
