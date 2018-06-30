@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "ajv": "6.5.1",
+    "ajv": "6.5.2",
     "compare-versions": "3.3.0",
     "isomorphic-git": "0.19.9",
     "js-yaml": "3.12.0",
