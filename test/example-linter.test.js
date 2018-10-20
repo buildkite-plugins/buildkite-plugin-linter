@@ -57,6 +57,16 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('old plugin syntax', () => {
+    it('should be invalid', async () => {
+      assert.isFalse(await linter({
+        id: 'invalid-examples',
+        path: path.join(fixtures, 'old-plugins-syntax'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
   describe('custom readme paths', () => {
     it('should work', async () => {
       assert(await linter({
