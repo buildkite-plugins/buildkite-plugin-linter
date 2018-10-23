@@ -2,22 +2,22 @@ steps:
   - label: ":mocha:"
     command: "npm run test"
     plugins:
-      docker-compose#v2.5.1:
-        run: linter
+      - docker-compose#v2.5.1:
+          run: linter
 
   - label: ":eslint:"
     command: "npm run lint"
     plugins:
-      docker-compose#v2.5.1:
-        run: linter
+      - docker-compose#v2.5.1:
+          run: linter
 
   - wait
 
   - label: ":docker:"
     branches: master
     plugins:
-      docker-login#v2.0.1: ~
-      docker-compose#v2.0.0:
-        config: docker-compose.prod.yml
-        push:
-          - linter:buildkite/plugin-linter
+      - docker-login#v2.0.1: ~
+      - docker-compose#v2.0.0:
+          config: docker-compose.prod.yml
+          push:
+            - linter:buildkite/plugin-linter
