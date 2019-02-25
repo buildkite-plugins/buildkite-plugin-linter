@@ -38,6 +38,8 @@ docker run \
     --id my-org/my-plugin
 ```
 
+If your plugin examples use a full git URL, such as `ssh://git@github.com/my-org/example-buildkite-plugin`, then you should specify the full git URL in the `id` argument.
+
 ## Roadmap / TODO
 
 * Check that all the config options in the readme exist in the configuration schema
