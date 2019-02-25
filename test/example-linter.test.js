@@ -47,6 +47,16 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('valid example with SSH syntax', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        id: 'ssh://git@github.com/my-org/example-buildkite-plugin',
+        path: path.join(fixtures, 'valid-plugin-with-ssh-syntax'),
+        silent: false,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
   describe('invalid examples', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
