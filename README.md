@@ -69,6 +69,10 @@ docker-compose run --rm linter
 docker-compose run --rm linter lint --help
 ```
 
+## Releasing
+
+* Master is built and tested automatically, and pushes a new image to [buildkite/plugin-linter on Docker Hub](https://hub.docker.com/r/buildkite/plugin-linter)
+
 ## License
 
 MIT (see [LICENSE](LICENSE))
