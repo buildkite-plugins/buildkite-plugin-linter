@@ -3,7 +3,7 @@
     "ajv": "6.10.0",
     "compare-versions": "3.4.0",
     "isomorphic-git": "0.53.0",
-    "js-yaml": "3.13.0",
+    "js-yaml": "3.13.1",
     "tap": "12.6.1",
     "yargs": "13.2.2"
   },
