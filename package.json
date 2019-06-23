@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "ajv": "6.10.0",
-    "compare-versions": "3.4.0",
+    "compare-versions": "3.5.0",
     "isomorphic-git": "0.55.4",
     "js-yaml": "3.13.1",
     "tap": "14.2.3",
