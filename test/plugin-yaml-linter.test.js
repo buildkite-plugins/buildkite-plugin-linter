@@ -17,7 +17,7 @@ describe('plugin-yaml-linter', () => {
     })
   });
 
-  [ 'missing-name',
+  ['missing-name',
     'missing-description',
     'missing-author',
     'missing-requirements',
