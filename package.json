@@ -16,7 +16,7 @@
     "eslint-plugin-standard": "4.0.1",
     "fs-extra": "8.1.0",
     "mocha": "6.2.0",
-    "standard": "14.1.0"
+    "standard": "14.3.1"
   },
   "scripts": {
     "test": "mocha",
