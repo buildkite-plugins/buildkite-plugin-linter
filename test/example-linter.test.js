@@ -27,6 +27,16 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('valid plugin with zero config', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        id: 'zero-config-plugin',
+        path: path.join(fixtures, 'zero-config-plugin'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
   describe('valid plugin with examples without a steps key', () => {
     it('should be valid', async () => {
       assert(await linter({
