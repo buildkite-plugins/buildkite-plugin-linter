@@ -1,4 +1,4 @@
-# Buildkite Plugin Linter ![Build status](https://badge.buildkite.com/059f4510165dc84f2a2036a70136401d4b027828ba112a7944.svg?branch=master)
+# Buildkite Plugin Linter [![Build status](https://badge.buildkite.com/a5a4521a3d026931873c0ad26e1596641273dae5a730c0f90c.svg?branch=master)](https://buildkite.com/buildkite/plugin-linter)
 
 A linter for your [Buildkite plugins](https://buildkite.com/docs/agent/v3/plugins), used by the [plugin-linter Buildkite plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin) ✨
 
