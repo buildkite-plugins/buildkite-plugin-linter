@@ -107,4 +107,14 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('valid local example', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        id: './test/example-linter/valid-local-plugin',
+        path: path.join(fixtures, 'valid-local-plugin'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
 })
