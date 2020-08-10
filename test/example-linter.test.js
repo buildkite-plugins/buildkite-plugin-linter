@@ -76,6 +76,14 @@ describe('example-linter', () => {
         readme: 'README.md'
       }, tap))
     })
+    it('is missing version', async () => {
+      assert.isFalse(await linter({
+        id: 'missing-version',
+        path: path.join(fixtures, 'missing-version'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
   })
   describe('old plugin syntax', () => {
     it('should be invalid', async () => {
@@ -102,6 +110,16 @@ describe('example-linter', () => {
       assert(await linter({
         id: 'missing-configuration',
         path: path.join(fixtures, 'missing-configuration'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
+  describe('valid local example', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        id: './test/example-linter/valid-local-plugin',
+        path: path.join(fixtures, 'valid-local-plugin'),
         silent: true,
         readme: 'README.md'
       }, tap))
