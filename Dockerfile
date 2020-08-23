@@ -7,5 +7,6 @@ ENTRYPOINT ["lint"]
 
 FROM base as dev
 RUN npm -s install
+ENTRYPOINT []
 
 FROM base
