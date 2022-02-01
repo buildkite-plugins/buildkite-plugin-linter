@@ -4,7 +4,7 @@
     "compare-versions": "3.6.0",
     "isomorphic-git": "1.7.4",
     "js-yaml": "3.14.0",
-    "tap": "14.10.8",
+    "tap": "14.11.0",
     "yargs": "15.4.1"
   },
   "devDependencies": {
