@@ -1,4 +1,4 @@
-FROM node:12-alpine@sha256:0b5c7eb38785da1ad4c105930faca0bc546dfcceb0464724456e277fd5e3f6e2 as base
+FROM node:17-alpine@sha256:f61706c2cb120c06cf4fdcf60a2822a804b0bd90b6b2209be1ee00db1d33130c as base
 WORKDIR    /src
 ENV        PATH=$PATH:/src/bin PLUGIN_PATH=/plugin
 ADD        . /src/
