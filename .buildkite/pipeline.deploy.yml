@@ -2,7 +2,7 @@ steps:
   - label: ":docker: :hammer:"
     plugins:
       docker-compose#v3.9.0:
-        run: tests
+        run: linter
 
   - wait
 
