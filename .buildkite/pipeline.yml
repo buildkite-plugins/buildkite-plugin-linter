@@ -10,14 +10,3 @@ steps:
     plugins:
       - docker-compose#v3.9.0:
           run: linter
-
-  - wait
-
-  - label: ":docker:"
-    branches: master
-    plugins:
-      - docker-login#v2.1.0: ~
-      - docker-compose#v3.9.0:
-          config: docker-compose.prod.yml
-          push:
-            - linter:buildkite/plugin-linter
