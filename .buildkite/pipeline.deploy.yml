@@ -10,7 +10,9 @@ steps:
     plugins:
       docker-login#v2.1.0: ~
       docker-compose#v3.9.0:
-        push: latest
+        config: docker-compose.prod.yml
+        push:
+          - linter:buildkite/plugin-linter
     if: |
       build.branch == 'master'
   - label: ":docker: :rocket: Tag"
