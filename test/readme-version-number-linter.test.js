@@ -63,7 +63,7 @@ describe('readme-version-number-linter', () => {
         id: 'invalid-sem-ver-tags',
         path: initGitFixture(path.join(fixtures, 'invalid-sem-ver-tags')),
         readme: 'README.md',
-        silent: false
+        silent: true
       }, tap))
     })
   })

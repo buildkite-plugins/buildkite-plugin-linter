@@ -62,7 +62,7 @@ describe('example-linter', () => {
       assert(await linter({
         id: 'ssh://git@github.com/my-org/example-buildkite-plugin',
         path: path.join(fixtures, 'valid-plugin-with-ssh-syntax'),
-        silent: false,
+        silent: true,
         readme: 'README.md'
       }, tap))
     })
