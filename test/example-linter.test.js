@@ -37,6 +37,16 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('valid plugin with examples with group step', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        id: 'valid-example-with-group-step',
+        path: path.join(fixtures, 'valid-example-with-group-step'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
   describe('valid plugin with examples without a steps key', () => {
     it('should be valid', async () => {
       assert(await linter({
