@@ -18,7 +18,8 @@ const argv = require('yargs')
     default: 'README.md'
   })
   .check(yargs => {
-    if (yargs && yargs.id && yargs.id.endsWith('-buildkite-plugin') && yargs.id.indexOf('://') === -1) {
+    if (yargs && yargs.id && yargs.id.endsWith('-buildkite-plugin') && yargs.id.indexOf('://') === -1 
+        && !yargs.id.startsWith('./') && !yargs.id.startsWith('/') && !yargs.id.startsWith('~/') ) {
       throw new Error(`--id can not end with -buildkite-plugin. Did you mean ${yargs.id.replace(/-buildkite-plugin$/, '')}?`)
     }
     return true
