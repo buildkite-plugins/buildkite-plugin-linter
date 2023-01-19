@@ -16,10 +16,5 @@
   "scripts": {
     "test": "mocha",
     "lint": "standard"
-  },
-  "standard": {
-    "ignore": [
-      "lib/linters/example-linter.js"
-    ]
   }
 }
