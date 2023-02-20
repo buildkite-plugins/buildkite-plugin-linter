@@ -70,7 +70,7 @@ describe('example-linter', () => {
   describe('valid example with SSH syntax', () => {
     it('should be valid', async () => {
       assert(await linter({
-        id: 'ssh://git@github.com/my-org/example-buildkite-plugin',
+        id: 'my-org/example',
         path: path.join(fixtures, 'valid-plugin-with-ssh-syntax'),
         silent: true,
         readme: 'README.md'
@@ -98,7 +98,7 @@ describe('example-linter', () => {
   describe('old plugin syntax', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
-        id: 'invalid-examples',
+        id: 'valid-plugin',
         path: path.join(fixtures, 'old-plugins-syntax'),
         silent: true,
         readme: 'README.md'

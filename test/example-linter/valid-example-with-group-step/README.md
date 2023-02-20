@@ -7,3 +7,12 @@
       - valid-example-with-group-step#v1.2.3:
           option: value
 ```
+
+```yml
+steps:
+- group: My Group
+  steps:
+  - plugins:
+      - valid-example-with-group-step#v1.2.3:
+          option: value
+```
