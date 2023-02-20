@@ -19,6 +19,8 @@ steps:
     plugins:
       docker-login#v2.1.0: ~
       docker-compose#v4.9.0:
-        push: tag
+        config: docker-compose.prod.yml
+        push:
+          - linter:buildkite/plugin-linter:${BUILDKITE_TAG}
     if: |
       build.tag != null
