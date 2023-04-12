@@ -3,6 +3,13 @@ description: A great plugin
 author: github.com/buildkite
 requirements: []
 configuration:
-  properties: {}
+  properties:
+    valid-string:
+      type: string
+    valid-object:
+      type: object
+      properties:
+        sub-property:
+          type: string
   required: []
   additionalProperties: false
