@@ -4,12 +4,11 @@ author: github.com/buildkite
 requirements: []
 configuration:
   properties:
-    valid-string:
-      type: string
-    valid-object:
-      type: object
+    value:
       properties:
-        sub-property:
-          type: string
+        this-is-valid:
+           type: boolean
+      should-not-be-valid:
+        type: string
   required: []
   additionalProperties: false
