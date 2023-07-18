@@ -6,7 +6,7 @@
     "isomorphic-git": "1.23.0",
     "js-yaml": "3.14.1",
     "tap": "16.3.7",
-    "yargs": "17.7.1"
+    "yargs": "17.7.2"
   },
   "devDependencies": {
     "chai": "4.3.7",
