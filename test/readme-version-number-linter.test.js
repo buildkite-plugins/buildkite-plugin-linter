@@ -57,7 +57,7 @@ describe('readme-version-number-linter', () => {
       }, tap))
     })
   })
-  describe('readme with out  of date version numbers and no v prefix', () => {
+  describe('readme with out of date version numbers and no v prefix', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
         id: 'out-of-date',
