@@ -57,6 +57,16 @@ describe('readme-version-number-linter', () => {
       }, tap))
     })
   })
+  describe('readme with out  of date version numbers and no v prefix', () => {
+    it('should be invalid', async () => {
+      assert.isFalse(await linter({
+        id: 'out-of-date',
+        path: initGitFixture(path.join(fixtures, 'out-of-date')),
+        readme: 'README-No-Version.md',
+        silent: true
+      }, tap))
+    })
+  })
   describe('readme withan invalid version number', () => {
     it('should ignore the invalid', async () => {
       assert(await linter({
