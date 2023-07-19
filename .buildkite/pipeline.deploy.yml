@@ -10,6 +10,7 @@ steps:
     plugins:
       docker-login#v2.1.0: ~
       docker-compose#v4.14.0:
+        cli-version: 2
         config: docker-compose.prod.yml
         push:
           - linter:buildkite/plugin-linter
@@ -19,6 +20,7 @@ steps:
     plugins:
       docker-login#v2.1.0: ~
       docker-compose#v4.14.0:
+        cli-version: 2
         config: docker-compose.prod.yml
         push:
           - linter:buildkite/plugin-linter:${BUILDKITE_TAG}
