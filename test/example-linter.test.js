@@ -16,6 +16,14 @@ describe('example-linter', () => {
         readme: 'README.md'
       }, tap))
     })
+    it('should be valid without v', async () => {
+      assert(await linter({
+        id: 'valid-plugin',
+        path: path.join(fixtures, 'valid-plugin'),
+        silent: true,
+        readme: 'README-with-anything.md'
+      }, tap))
+    })
   })
   describe('valid plugin with yaml instead of yml', () => {
     it('should be valid', async () => {
