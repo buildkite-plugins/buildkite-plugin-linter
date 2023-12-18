@@ -57,6 +57,34 @@ describe('readme-version-number-linter', () => {
       }, tap))
     })
   })
+  describe('custom readme with invalid version numbers', () => {
+    it('should be valid with the skipInvalid option', async () => {
+      assert(await linter({
+        id: 'custom-readme',
+        path: initGitFixture(path.join(fixtures, 'custom-readme')),
+        readme: 'invalid-version.md',
+        skipInvalid: true,
+        silent: true
+      }, tap))
+    })
+    it('should be invalid with the skipInvalid option turned off', async () => {
+      assert.isFalse(await linter({
+        id: 'custom-readme',
+        path: initGitFixture(path.join(fixtures, 'custom-readme')),
+        readme: 'invalid-version.md',
+        skipInvalid: false,
+        silent: true
+      }, tap))
+    })
+    it('should be invalid without the skipInvalid option', async () => {
+      assert.isFalse(await linter({
+        id: 'custom-readme',
+        path: initGitFixture(path.join(fixtures, 'custom-readme')),
+        readme: 'invalid-version.md',
+        silent: true
+      }, tap))
+    })
+  })
   describe('readme with out of date version numbers and no v prefix', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
@@ -67,7 +95,7 @@ describe('readme-version-number-linter', () => {
       }, tap))
     })
   })
-  describe('readme withan invalid version number', () => {
+  describe('readme with an invalid version tags', () => {
     it('should ignore the invalid', async () => {
       assert(await linter({
         id: 'invalid-sem-ver-tags',
