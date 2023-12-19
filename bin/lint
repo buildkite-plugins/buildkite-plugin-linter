@@ -17,8 +17,7 @@ const argv = require('yargs')
     type: 'string',
     default: 'README.md'
   })
-  .option('skipInvalid', {
-    alias: 'skip-invalid',
+  .option('skip-invalid', {
     describe: 'Invalid versions do not cause failures',
     type: 'boolean',
     default: false
