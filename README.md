@@ -14,9 +14,39 @@ Further reading and tools:
 * [JSON Schema](http://json-schema.org)
 * [JSON Schema Lint](https://jsonschemalint.com/)
 
+## Configuration
+
+Options available on the executable as long-form switches (`--OPTION`) can also be passed through as environment variables with the `PLUGIN_` prefix (`PLUGIN_OPTION`).
+
+### Required
+
+#### `id` (string, `PLUGIN_ID`)
+
+This is the id of the plugin to be validated. It is used to search for and validate examples.
+
+#### `path` (string, `PLUGIN_PATH`)
+
+Where the plugin to lint can be found.
+
+### Optional
+
+#### `readme` (string, `PLUGIN_README`)
+
+The name of the file to validate examples on.
+
+Default: `README.md`
+
+#### `skip-invalid` (boolean, `PLUGIN_SKIP_INVALID`)
+
+Invalid versions are normally reported as failures, turning on this option would change that behaviour.
+
+Default: `false`
+
 ## Usage
 
-You can use this tool via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin) or you can add it to your docker-compose.yml file and then use `docker-compose run --rm lint`:
+You should use this tool via the [Linter Plugin](https://github.com/buildkite-plugins/plugin-linter-buildkite-plugin) in your plugin's pipeline.
+
+Alternatively, you can add it to your docker-compose.yml file and then use `docker-compose run --rm lint`:
 
 ```yml
 services:
@@ -35,7 +65,8 @@ docker run \
   --rm \
   -v "$(pwd):/plugin" \
   buildkite/plugin-linter \
-    --id my-org/my-plugin
+    --id my-org/my-plugin \
+    --path README.md
 ```
 
 If your plugin examples use a full git URL, such as `ssh://git@github.com/my-org/example-buildkite-plugin`, then you should specify the full git URL in the `id` argument.
