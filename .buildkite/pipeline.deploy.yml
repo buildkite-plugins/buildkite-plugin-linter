@@ -1,7 +1,7 @@
 steps:
   - label: ":docker: :hammer:"
     plugins:
-      docker-compose#v4.16.0:
+      docker-compose#v5.0.0:
         run: linter
 
   - wait
@@ -9,7 +9,7 @@ steps:
   - label: ":docker: :rocket: Latest"
     plugins:
       docker-login#v3.0.0: ~
-      docker-compose#v4.16.0:
+      docker-compose#v5.0.0:
         cli-version: 2
         config: docker-compose.prod.yml
         push:
@@ -19,7 +19,7 @@ steps:
   - label: ":docker: :rocket: Tag"
     plugins:
       docker-login#v3.0.0: ~
-      docker-compose#v4.16.0:
+      docker-compose#v5.0.0:
         cli-version: 2
         config: docker-compose.prod.yml
         push:
