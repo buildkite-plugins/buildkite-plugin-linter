@@ -11,6 +11,7 @@ steps:
       docker-login#v3.0.0: ~
       docker-compose#v5.2.0:
         config: docker-compose.prod.yml
+        build: linter
         push:
           - linter:buildkite/plugin-linter
     if: |
@@ -20,6 +21,7 @@ steps:
       docker-login#v3.0.0: ~
       docker-compose#v5.2.0:
         config: docker-compose.prod.yml
+        build: linter
         push:
           - linter:buildkite/plugin-linter:${BUILDKITE_TAG}
     if: |
