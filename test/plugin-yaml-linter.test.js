@@ -1,17 +1,20 @@
 /* eslint-env mocha */
 
-const assert = require('chai').assert
-const linter = require('../lib/linters/plugin-yaml-linter')
-const path = require('path')
-const fixtures = path.join(__dirname, 'plugin-yaml-linter')
-const tap = require('tap')
+import { assert } from 'chai'
+import { join } from 'path'
+import { t as tap } from 'tap'
+
+import linter from '../lib/linters/plugin-yaml-linter.js'
+
+const __dirname = import.meta.dirname;
+const fixtures = join(__dirname, 'plugin-yaml-linter')
 
 describe('plugin-yaml-linter', () => {
   describe('valid plugin', () => {
     it('should be valid', async () => {
       assert(await linter({
         id: 'valid-plugin',
-        path: path.join(fixtures, 'valid-plugin'),
+        path: join(fixtures, 'valid-plugin'),
         silent: true
       }, tap))
     })
@@ -29,7 +32,7 @@ describe('plugin-yaml-linter', () => {
       it('should be invalid', async () => {
         assert.isFalse(await linter({
           name: invalidCase,
-          path: path.join(fixtures, invalidCase),
+          path: join(fixtures, invalidCase),
           silent: true
         }, tap))
       })
