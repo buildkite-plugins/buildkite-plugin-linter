@@ -6,7 +6,7 @@ import { t as tap } from 'tap'
 
 import linter from '../lib/linters/plugin-yaml-linter.js'
 
-const __dirname = import.meta.dirname;
+const __dirname = import.meta.dirname
 const fixtures = join(__dirname, 'plugin-yaml-linter')
 
 describe('plugin-yaml-linter', () => {

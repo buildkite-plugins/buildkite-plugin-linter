@@ -7,7 +7,7 @@ import { join } from 'path'
 
 import linter from '../lib/linters/readme-version-number-linter.js'
 
-const __dirname = import.meta.dirname;
+const __dirname = import.meta.dirname
 const fixtures = join(__dirname, 'readme-version-number-linter')
 
 // The fixtures are checked as git repos, and then renamed from .git to git so
