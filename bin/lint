@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
-const argv = require('yargs')
+import yargs from 'yargs'
+
+import yaml_linter from '../lib/linters/plugin-yaml-linter.js'
+import example_linter from '../lib/linters/example-linter.js'
+import readme_linter from '../lib/linters/readme-version-number-linter.js'
+
+const argv = yargs(process.argv.slice(2))
   .env('PLUGIN')
   .usage('$0', 'Lint a buildkite plugin')
   .option('id', {
@@ -23,7 +29,7 @@ const argv = require('yargs')
     default: false
   })
   .check(yargs => {
-    if (yargs && yargs.id && yargs.id.endsWith('-buildkite-plugin') && yargs.id.indexOf('://') === -1 
+    if (yargs && yargs.id && yargs.id.endsWith('-buildkite-plugin') && yargs.id.indexOf('://') === -1
         && !yargs.id.startsWith('./') && !yargs.id.startsWith('/') && !yargs.id.startsWith('~/') ) {
       throw new Error(`--id can not end with -buildkite-plugin. Did you mean ${yargs.id.replace(/-buildkite-plugin$/, '')}?`)
     }
@@ -34,12 +40,12 @@ const argv = require('yargs')
   .version(false)
   .argv
 
-const tap = require('tap')
+import { t as tap } from 'tap'
 
 Promise.all([
-  require('../lib/linters/plugin-yaml-linter')(argv, tap),
-  require('../lib/linters/example-linter')(argv, tap),
-  require('../lib/linters/readme-version-number-linter')(argv, tap)
+  yaml_linter(argv, tap),
+  example_linter(argv, tap),
+  readme_linter(argv, tap),
   ])
   .catch((err) => {
     tap.threw(err)

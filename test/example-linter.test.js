@@ -1,17 +1,20 @@
 /* eslint-env mocha */
 
-const assert = require('chai').assert
-const linter = require('../lib/linters/example-linter')
-const path = require('path')
-const fixtures = path.join(__dirname, 'example-linter')
-const tap = require('tap')
+import { assert } from 'chai'
+import { join } from 'path'
+import { t as tap } from 'tap'
+
+import linter from '../lib/linters/example-linter.js'
+
+const __dirname = import.meta.dirname
+const fixtures = join(__dirname, 'example-linter')
 
 describe('example-linter', () => {
   describe('valid example', () => {
     it('should be valid', async () => {
       assert(await linter({
         id: 'valid-plugin',
-        path: path.join(fixtures, 'valid-plugin'),
+        path: join(fixtures, 'valid-plugin'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -19,7 +22,7 @@ describe('example-linter', () => {
     it('should be valid without v', async () => {
       assert(await linter({
         id: 'valid-plugin',
-        path: path.join(fixtures, 'valid-plugin'),
+        path: join(fixtures, 'valid-plugin'),
         silent: true,
         readme: 'README-with-anything.md'
       }, tap))
@@ -29,7 +32,7 @@ describe('example-linter', () => {
     it('should be valid', async () => {
       assert(await linter({
         id: 'valid-plugin-with-yaml',
-        path: path.join(fixtures, 'valid-plugin-with-yaml'),
+        path: join(fixtures, 'valid-plugin-with-yaml'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -39,7 +42,7 @@ describe('example-linter', () => {
     it('should be valid', async () => {
       assert(await linter({
         id: 'zero-config-plugin',
-        path: path.join(fixtures, 'zero-config-plugin'),
+        path: join(fixtures, 'zero-config-plugin'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -49,7 +52,7 @@ describe('example-linter', () => {
     it('should be valid', async () => {
       assert(await linter({
         id: 'valid-example-with-group-step',
-        path: path.join(fixtures, 'valid-example-with-group-step'),
+        path: join(fixtures, 'valid-example-with-group-step'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -59,7 +62,7 @@ describe('example-linter', () => {
     it('should be valid', async () => {
       assert(await linter({
         id: 'valid-example-without-a-steps-key',
-        path: path.join(fixtures, 'valid-example-without-a-steps-key'),
+        path: join(fixtures, 'valid-example-without-a-steps-key'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -69,7 +72,7 @@ describe('example-linter', () => {
     it('should be valid', async () => {
       assert(await linter({
         id: 'valid-example-with-ignored-yml-block',
-        path: path.join(fixtures, 'valid-example-with-ignored-yml-block'),
+        path: join(fixtures, 'valid-example-with-ignored-yml-block'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -79,7 +82,7 @@ describe('example-linter', () => {
     it('should be valid with full url', async () => {
       assert(await linter({
         id: 'ssh://git@github.com/my-org/example-buildkite-plugin',
-        path: path.join(fixtures, 'valid-plugin-with-ssh-syntax'),
+        path: join(fixtures, 'valid-plugin-with-ssh-syntax'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -87,7 +90,7 @@ describe('example-linter', () => {
     it('should be valid with plugin id', async () => {
       assert(await linter({
         id: 'my-org/example',
-        path: path.join(fixtures, 'valid-plugin-with-ssh-syntax'),
+        path: join(fixtures, 'valid-plugin-with-ssh-syntax'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -97,7 +100,7 @@ describe('example-linter', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
         id: 'invalid-plugin',
-        path: path.join(fixtures, 'invalid-examples'),
+        path: join(fixtures, 'invalid-examples'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -105,7 +108,7 @@ describe('example-linter', () => {
     it('is missing version', async () => {
       assert.isFalse(await linter({
         id: 'missing-version',
-        path: path.join(fixtures, 'missing-version'),
+        path: join(fixtures, 'missing-version'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -115,7 +118,7 @@ describe('example-linter', () => {
     it('should be invalid', async () => {
       assert.isFalse(await linter({
         id: 'valid-plugin',
-        path: path.join(fixtures, 'old-plugins-syntax'),
+        path: join(fixtures, 'old-plugins-syntax'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -125,7 +128,7 @@ describe('example-linter', () => {
     it('should work', async () => {
       assert(await linter({
         id: 'custom-readme',
-        path: path.join(fixtures, 'custom-readme'),
+        path: join(fixtures, 'custom-readme'),
         silent: true,
         readme: 'custom-readme.md'
       }, tap))
@@ -135,7 +138,7 @@ describe('example-linter', () => {
     it('should work', async () => {
       assert(await linter({
         id: 'missing-configuration',
-        path: path.join(fixtures, 'missing-configuration'),
+        path: join(fixtures, 'missing-configuration'),
         silent: true,
         readme: 'README.md'
       }, tap))
@@ -145,7 +148,7 @@ describe('example-linter', () => {
     it('should be valid', async () => {
       assert(await linter({
         id: './test/example-linter/valid-local-plugin',
-        path: path.join(fixtures, 'valid-local-plugin'),
+        path: join(fixtures, 'valid-local-plugin'),
         silent: true,
         readme: 'README.md'
       }, tap))
