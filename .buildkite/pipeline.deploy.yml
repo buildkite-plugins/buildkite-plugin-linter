@@ -1,7 +1,7 @@
 steps:
   - label: ":docker: :hammer:"
     plugins:
-      docker-compose#v5.5.0:
+      docker-compose#v5.6.0:
         run: linter
 
   - wait
@@ -15,7 +15,7 @@ steps:
             BUILDKITE_PLUGIN_DOCKER_LOGIN_USERNAME: /pipelines/buildkite/plugin-linter-deploy/docker-login-username
             DOCKER_LOGIN_PASSWORD: /pipelines/buildkite/plugin-linter-deploy/docker-login-password
       - docker-login#v3.0.0: ~
-      - docker-compose#v5.5.0:
+      - docker-compose#v5.6.0:
           config: docker-compose.prod.yml
           build: linter
           push:
@@ -31,7 +31,7 @@ steps:
             BUILDKITE_PLUGIN_DOCKER_LOGIN_USERNAME: /pipelines/buildkite/plugin-linter-deploy/docker-login-username
             DOCKER_LOGIN_PASSWORD: /pipelines/buildkite/plugin-linter-deploy/docker-login-password
       - docker-login#v3.0.0: ~
-      - docker-compose#v5.5.0:
+      - docker-compose#v5.6.0:
           config: docker-compose.prod.yml
           build: linter
           push:
