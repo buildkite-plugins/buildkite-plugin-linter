@@ -1,4 +1,4 @@
-FROM node:lts-alpine@sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944 as base
+FROM node:lts-alpine@sha256:26af2660b4251770e85475170641b3cd2c1b3785f8801309e738ee35eb29acc2 as base
 WORKDIR    /src
 ENV        PATH=$PATH:/src/bin PLUGIN_PATH=/plugin
 ADD        . /src/
