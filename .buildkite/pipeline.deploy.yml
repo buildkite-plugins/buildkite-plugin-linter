@@ -8,8 +8,12 @@ steps:
 
   - label: ":docker: :rocket: Latest"
     plugins:
-      - aws-assume-role-with-web-identity:
+      - aws-assume-role-with-web-identity#v1.4.0:
           role-arn: arn:aws:iam::445615400570:role/pipeline-buildkite-plugin-linter-deploy
+          session-tags:
+            - organization_slug
+            - organization_id
+            - pipeline_slug
       - aws-ssm#v1.1.0:
           parameters:
             BUILDKITE_PLUGIN_DOCKER_LOGIN_USERNAME: /pipelines/buildkite/plugin-linter-deploy/docker-login-username
@@ -24,8 +28,12 @@ steps:
       build.branch == 'master'
   - label: ":docker: :rocket: Tag"
     plugins:
-      - aws-assume-role-with-web-identity:
+      - aws-assume-role-with-web-identity#v1.4.0:
           role-arn: arn:aws:iam::445615400570:role/pipeline-buildkite-plugin-linter-deploy
+          session-tags:
+            - organization_slug
+            - organization_id
+            - pipeline_slug
       - aws-ssm#v1.1.0:
           parameters:
             BUILDKITE_PLUGIN_DOCKER_LOGIN_USERNAME: /pipelines/buildkite/plugin-linter-deploy/docker-login-username
