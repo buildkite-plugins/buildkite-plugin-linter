@@ -9,7 +9,7 @@
     "yargs": "18.0.0"
   },
   "devDependencies": {
-    "chai": "5.2.1",
+    "chai": "5.3.1",
     "fs-extra": "11.3.1",
     "mocha": "11.7.1",
     "standard": "17.1.2"
