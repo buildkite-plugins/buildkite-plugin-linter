@@ -113,6 +113,15 @@ describe('example-linter', () => {
         readme: 'README.md'
       }, tap))
     })
+    it('is missing version but allowed', async () => {
+      assert(await linter({
+        id: 'missing-version',
+        path: join(fixtures, 'missing-version'),
+        silent: true,
+        readme: 'README.md',
+        skipInvalid: true
+      }, tap))
+    })
   })
   describe('old plugin syntax', () => {
     it('should be invalid', async () => {
