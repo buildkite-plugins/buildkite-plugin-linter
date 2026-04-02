@@ -18,5 +18,9 @@
     "test": "mocha",
     "lint": "standard"
   },
-  "type": "module"
+  "type": "module",
+  "overrides": {
+    "diff": "^8.0.3",
+    "serialize-javascript": "^7.0.5"
+  }
 }
