@@ -20,7 +20,7 @@
   },
   "type": "module",
   "overrides": {
-    "diff": "^8.0.3",
+    "diff": "^9.0.0",
     "serialize-javascript": "^7.0.5"
   }
 }
