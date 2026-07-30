@@ -69,7 +69,7 @@ config:
   })
 
   // The loader deliberately sticks to YAML 1.2 core resolution rather than
-  // YAML11_SCHEMA, so these two are the trade-offs we accepted
+  // YAML11_SCHEMA, so these are the trade-offs we accepted
   describe('yaml 1.2 core resolution', () => {
     it('leaves a bare date as a string', () => {
       // v4 built a Date, which never satisfied an Ajv `type: string`
