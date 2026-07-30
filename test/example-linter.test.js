@@ -68,6 +68,16 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('valid example with merge keys', () => {
+    it('should be valid', async () => {
+      assert(await linter({
+        id: 'valid-example-with-merge-keys',
+        path: join(fixtures, 'valid-example-with-merge-keys'),
+        silent: true,
+        readme: 'README.md'
+      }, tap))
+    })
+  })
   describe('valid example with ignored yml block', () => {
     it('should be valid', async () => {
       assert(await linter({
