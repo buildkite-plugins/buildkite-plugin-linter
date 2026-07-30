@@ -66,6 +66,19 @@ config:
     })
   })
 
+  // The loader deliberately sticks to YAML 1.2 core resolution rather than
+  // YAML11_SCHEMA, so these two are the trade-offs we accepted
+  describe('yaml 1.2 core resolution', () => {
+    it('leaves a bare date as a string', () => {
+      // v4 built a Date, which never satisfied an Ajv `type: string`
+      assert.strictEqual(loadYaml('when: 2026-07-30\n').when, '2026-07-30')
+    })
+
+    it('throws on yaml 1.1 tags outside the core schema', () => {
+      assert.throws(() => loadYaml('!!set { a, b }\n'), /unknown mapping tag/)
+    })
+  })
+
   describe('invalid input', () => {
     it('throws on a syntax error', () => {
       assert.throws(() => loadYaml('steps:\n\t- command: test\n'), /tab characters/)
