@@ -48,21 +48,23 @@ config:
     })
   })
 
+  // Deliberately undefined rather than {}, so that parsing one of our own
+  // files down to nothing fails loudly instead of validating everything
   describe('empty documents', () => {
-    it('returns an empty object for an empty string', () => {
-      assert.deepEqual(loadYaml(''), {})
+    it('returns undefined for an empty string', () => {
+      assert.isUndefined(loadYaml(''))
     })
 
-    it('returns an empty object for whitespace only', () => {
-      assert.deepEqual(loadYaml('   \n\n'), {})
+    it('returns undefined for whitespace only', () => {
+      assert.isUndefined(loadYaml('   \n\n'))
     })
 
-    it('returns an empty object for comments only', () => {
-      assert.deepEqual(loadYaml('# nothing to see here\n'), {})
+    it('returns undefined for comments only', () => {
+      assert.isUndefined(loadYaml('# nothing to see here\n'))
     })
 
-    it('returns an empty object for a bare document marker', () => {
-      assert.deepEqual(loadYaml('---\n'), {})
+    it('returns null for a bare document marker', () => {
+      assert.isNull(loadYaml('---\n'))
     })
   })
 
@@ -85,7 +87,7 @@ config:
     })
 
     it('throws on more than one document', () => {
-      assert.throws(() => loadYaml('steps: []\n---\nsteps: []\n'))
+      assert.throws(() => loadYaml('steps: []\n---\nsteps: []\n'), /expected a single document/)
     })
   })
 })
