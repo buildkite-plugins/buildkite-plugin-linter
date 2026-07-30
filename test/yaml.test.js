@@ -48,6 +48,24 @@ config:
     })
   })
 
+  describe('empty documents', () => {
+    it('returns an empty object for an empty string', () => {
+      assert.deepEqual(loadYaml(''), {})
+    })
+
+    it('returns an empty object for whitespace only', () => {
+      assert.deepEqual(loadYaml('   \n\n'), {})
+    })
+
+    it('returns an empty object for comments only', () => {
+      assert.deepEqual(loadYaml('# nothing to see here\n'), {})
+    })
+
+    it('returns an empty object for a bare document marker', () => {
+      assert.deepEqual(loadYaml('---\n'), {})
+    })
+  })
+
   describe('invalid input', () => {
     it('throws on a syntax error', () => {
       assert.throws(() => loadYaml('steps:\n\t- command: test\n'), /tab characters/)

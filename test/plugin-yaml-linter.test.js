@@ -20,7 +20,8 @@ describe('plugin-yaml-linter', () => {
     })
   });
 
-  ['invalid-sub-property',
+  ['empty-plugin-yml',
+    'invalid-sub-property',
     'missing-name',
     'missing-description',
     'missing-author',
