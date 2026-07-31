@@ -13,3 +13,7 @@ some:
     yaml:
       block: ~
 ```
+
+```yml
+# just a comment, nothing to lint
+```
