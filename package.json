@@ -4,7 +4,7 @@
     "ajv": "8.20.0",
     "compare-versions": "6.1.1",
     "isomorphic-git": "1.40.0",
-    "js-yaml": "5.2.2",
+    "js-yaml": "5.2.3",
     "tap": "21.7.5",
     "yargs": "18.1.0"
   },
