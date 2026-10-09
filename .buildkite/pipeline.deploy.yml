@@ -7,6 +7,18 @@ steps:
   - wait
 
   - label: ":docker: :rocket: Latest"
+    agents:
+      queue: hosted
+    command: |
+      image="buildkite/plugin-linter:latest"
+
+      docker buildx build \
+        --platform linux/amd64,linux/arm64 \
+        --tag "$${image}" \
+        --push \
+        .
+
+      docker buildx imagetools inspect "$${image}"
     plugins:
       - aws-assume-role-with-web-identity#v1.8.0:
           role-arn: arn:aws:iam::445615400570:role/pipeline-buildkite-plugin-linter-deploy
@@ -19,14 +31,21 @@ steps:
             BUILDKITE_PLUGIN_DOCKER_LOGIN_USERNAME: /pipelines/buildkite/plugin-linter-deploy/docker-login-username
             DOCKER_LOGIN_PASSWORD: /pipelines/buildkite/plugin-linter-deploy/docker-login-password
       - docker-login#v3.1.0: ~
-      - docker-compose#v5.15.0:
-          config: docker-compose.prod.yml
-          build: linter
-          push:
-            - linter:buildkite/plugin-linter
     if: |
       build.branch == 'master'
   - label: ":docker: :rocket: Tag"
+    agents:
+      queue: hosted
+    command: |
+      image="buildkite/plugin-linter:$${BUILDKITE_TAG}"
+
+      docker buildx build \
+        --platform linux/amd64,linux/arm64 \
+        --tag "$${image}" \
+        --push \
+        .
+
+      docker buildx imagetools inspect "$${image}"
     plugins:
       - aws-assume-role-with-web-identity#v1.8.0:
           role-arn: arn:aws:iam::445615400570:role/pipeline-buildkite-plugin-linter-deploy
@@ -39,10 +58,5 @@ steps:
             BUILDKITE_PLUGIN_DOCKER_LOGIN_USERNAME: /pipelines/buildkite/plugin-linter-deploy/docker-login-username
             DOCKER_LOGIN_PASSWORD: /pipelines/buildkite/plugin-linter-deploy/docker-login-password
       - docker-login#v3.1.0: ~
-      - docker-compose#v5.15.0:
-          config: docker-compose.prod.yml
-          build: linter
-          push:
-            - linter:buildkite/plugin-linter:${BUILDKITE_TAG}
     if: |
       build.tag != null
