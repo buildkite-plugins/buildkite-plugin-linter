@@ -31,7 +31,8 @@ steps:
           parameters:
             BUILDKITE_PLUGIN_DOCKER_LOGIN_USERNAME: /pipelines/buildkite/plugin-linter-deploy/docker-login-username
             DOCKER_LOGIN_PASSWORD: /pipelines/buildkite/plugin-linter-deploy/docker-login-password
-      - docker-login#v3.1.0: ~
+      - docker-login#v3.1.0:
+          isolate-config: false
     if: |
       build.branch == 'master'
   - label: ":docker: :rocket: Tag"
@@ -59,6 +60,7 @@ steps:
           parameters:
             BUILDKITE_PLUGIN_DOCKER_LOGIN_USERNAME: /pipelines/buildkite/plugin-linter-deploy/docker-login-username
             DOCKER_LOGIN_PASSWORD: /pipelines/buildkite/plugin-linter-deploy/docker-login-password
-      - docker-login#v3.1.0: ~
+      - docker-login#v3.1.0:
+          isolate-config: false
     if: |
       build.tag != null
