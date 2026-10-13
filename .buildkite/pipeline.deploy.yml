@@ -4,21 +4,6 @@ steps:
       docker-compose#v5.15.0:
         run: linter
 
-  - label: ":docker: :hammer: Multi-platform validation"
-    agents:
-      queue: hosted
-    command: |
-      image="$${BUILDKITE_HOSTED_REGISTRY_URL}/plugin-linter:sup-8210-$${BUILDKITE_BUILD_NUMBER}"
-
-      docker buildx build \
-        --platform linux/amd64,linux/arm64 \
-        --tag "$${image}" \
-        --push \
-        .
-
-      docker buildx imagetools inspect "$${image}"
-    if: build.branch == "sup-8210-publish-multi-platform-images"
-
   - wait
 
   - label: ":docker: :rocket: Latest"
