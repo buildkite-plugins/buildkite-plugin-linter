@@ -20,7 +20,7 @@ steps:
 
       docker buildx imagetools inspect "$${image}"
     plugins:
-      - aws-assume-role-with-web-identity#v1.8.0:
+      - aws-assume-role-with-web-identity#v1.8.1:
           role-arn: arn:aws:iam::445615400570:role/pipeline-buildkite-plugin-linter-deploy
           region: us-east-1
           session-tags:
@@ -49,7 +49,7 @@ steps:
 
       docker buildx imagetools inspect "$${image}"
     plugins:
-      - aws-assume-role-with-web-identity#v1.8.0:
+      - aws-assume-role-with-web-identity#v1.8.1:
           role-arn: arn:aws:iam::445615400570:role/pipeline-buildkite-plugin-linter-deploy
           region: us-east-1
           session-tags:
