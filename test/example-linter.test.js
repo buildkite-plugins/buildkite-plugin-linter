@@ -48,6 +48,45 @@ describe('example-linter', () => {
       }, tap))
     })
   })
+  describe('singular plugin syntax', () => {
+    for (const id of ['zero-config-plugin', 'valid-plugin']) {
+      it(`should validate ${id}`, async () => {
+        assert(await linter({
+          id,
+          path: join(fixtures, id),
+          silent: true,
+          readme: 'README-singular.md',
+          skipInvalid: id === 'zero-config-plugin'
+        }, tap))
+      })
+      it(`should ignore ${id} when the plugin id does not match`, async () => {
+        assert.isFalse(await linter({
+          id: 'another-plugin',
+          path: join(fixtures, id),
+          silent: true,
+          readme: 'README-singular.md',
+          skipInvalid: true
+        }, tap))
+      })
+    }
+    it('should require a version unless skipInvalid is enabled', async () => {
+      assert.isFalse(await linter({
+        id: 'zero-config-plugin',
+        path: join(fixtures, 'zero-config-plugin'),
+        silent: true,
+        readme: 'README-singular.md'
+      }, tap))
+    })
+    it('should reject invalid singular config even with a valid plural example and skipInvalid', async () => {
+      assert.isFalse(await linter({
+        id: 'invalid-plugin',
+        path: join(fixtures, 'invalid-examples'),
+        silent: true,
+        readme: 'README-singular.md',
+        skipInvalid: true
+      }, tap))
+    })
+  })
   describe('valid plugin with examples with group step', () => {
     it('should be valid', async () => {
       assert(await linter({
