@@ -39,12 +39,22 @@ describe('example-linter', () => {
     })
   })
   describe('valid plugin with zero config', () => {
-    it('should be valid', async () => {
-      assert(await linter({
+    for (const readme of ['README.md', 'README-empty-config.md']) {
+      it(`should validate empty config as an object in ${readme}`, async () => {
+        assert(await linter({
+          id: 'zero-config-plugin',
+          path: join(fixtures, 'zero-config-plugin'),
+          silent: true,
+          readme
+        }, tap))
+      })
+    }
+    it('should not treat false as empty config', async () => {
+      assert.isFalse(await linter({
         id: 'zero-config-plugin',
         path: join(fixtures, 'zero-config-plugin'),
         silent: true,
-        readme: 'README.md'
+        readme: 'README-false-config.md'
       }, tap))
     })
   })
@@ -152,6 +162,15 @@ describe('example-linter', () => {
         path: join(fixtures, 'invalid-examples'),
         silent: true,
         readme: 'README.md'
+      }, tap))
+    })
+    it('should reject no config when the schema requires an option', async () => {
+      assert.isFalse(await linter({
+        id: 'required-config-plugin',
+        path: join(fixtures, 'required-config-plugin'),
+        silent: true,
+        readme: 'README.md',
+        skipInvalid: true
       }, tap))
     })
     it('is missing version', async () => {
